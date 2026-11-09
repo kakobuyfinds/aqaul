@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#201c27">
+  <title>PantherBuy spreadsheet | Kategorie, rozmiary i kontrola QC</title>
+  <meta name="description" content="PantherBuy spreadsheet po polsku. Otwórz 10 kategorii HipobuyFind, porównaj rozmiary, sprawdź zdjęcia QC i oszacuj koszt wysyłki do Polski.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:title" content="PantherBuy spreadsheet | Kategorie, rozmiary i kontrola QC">
+  <meta property="og:description" content="Dziesięć kategorii HipobuyFind i polski poradnik o wymiarach, zdjęciach QC oraz kosztach wysyłki.">
+  <!--
+    Kwerenda redakcyjna: Google wyświetlił weryfikację ruchu, więc pierwsza strona
+    wyników pozostała niezweryfikowana. Motywy treści z 10 publicznych witryn:
+    pantherbuys.online (kategorie), findhaul.com/finds/pantherbuy (wariant i zdjęcia),
+    pantherbuylinks.com (marki i odsyłacze), pantherbuyspreadsheet.com (katalog),
+    pantherbuy.org (karty produktów), pantherbuy.net (kategorie i przewóz),
+    qcradar.com/pantherbuy-spreadsheet (aktualność odsyłaczy),
+    kakobuypandabuy.com/pantherbuy-spreadsheet (kontrola w magazynie),
+    fashionreps.tips/pantherbuy-spreadsheet (porównywanie ofert),
+    pantherbuy.co (obuwie, zdjęcia QC i wysyłka).
+    Frazy uzupełniające: poradnik PantherBuy, linki do produktów PantherBuy,
+    zdjęcia QC PantherBuy, wysyłka do Polski.
+    Frazy szczegółowe uwzględnione w poradniku: tabela rozmiarów butów, długość stopy,
+    długość wkładki, wymiary w centymetrach, szerokość pod pachami, długość rękawa,
+    szerokość w pasie, długość nogawki od kroku, skład materiału, kod koloru,
+    regulacja obwodu czapki, aktualna oferta, wariant produktu, kod modelu,
+    zdjęcia z magazynu, symetria pary, szwy przy mankietach, zapięcie bransoletki,
+    zasady zwrotu, koszt dostawy do magazynu, przesyłka międzynarodowa,
+    waga rzeczywista, waga gabarytowa, łączenie zamówień, opłaty importowe,
+    śledzenie paczki, budżet w PLN.
+  -->
+  <style>
+    :root{color-scheme:light;--ink:#201c27;--paper:#f5f1fb;--white:#fff;--lilac:#e1d5fc;--lime:#e1fa77;--muted:#554c60;--line:#cfc4db}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.58 system-ui,sans-serif}
+    h1,h2,h3,p,figure{margin:0}
+    h1,h2,h3{line-height:1.08;letter-spacing:-.035em}
+    h1{max-width:12ch;font-size:clamp(2.65rem,6.3vw,5.75rem);overflow-wrap:anywhere}
+    h2{font-size:clamp(1.7rem,4vw,2.65rem)}
+    h3{font-size:1.25rem}
+    p+p{margin-top:.7rem}
+    a{color:inherit;text-underline-offset:.22em}
+    a:focus-visible,summary:focus-visible{outline:3px solid #7544bb;outline-offset:4px}
+    .wrap{width:min(72rem,calc(100% - 2rem));margin-inline:auto}
+    .mast,.foot{background:var(--ink);color:#fff}
+    .mast .wrap,.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.55rem 1.5rem;padding-block:.85rem}
+    .mast a,.foot a{font-weight:750}
+    .mast span{color:var(--lime);font-size:.85rem}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:.75rem;padding-block:1rem}
+    .lead,.visual{border-radius:1.1rem;overflow:hidden}
+    .lead{background:var(--lilac);padding:clamp(1.25rem,4vw,3.25rem);display:grid;align-content:center;gap:1rem}
+    .lead p:last-child{max-width:52ch}
+    .tag,.num{font-size:.78rem;font-weight:800;letter-spacing:.085em;text-transform:uppercase}
+    .tag{width:fit-content;background:var(--lime);border-radius:2rem;padding:.25rem .75rem}
+    .visual{display:grid;grid-template-rows:1fr auto;background:#fff}
+    .visual img{display:block;width:100%;height:auto;aspect-ratio:1.55;object-fit:contain}
+    figcaption{padding:.55rem .8rem;color:var(--muted);font-size:.85rem}
+    .section{padding-block:clamp(1.3rem,4vw,3rem)}
+    .section h2+p{margin-top:.55rem;color:var(--muted)}
+    .directory,.stories,.gallery{display:grid;gap:.65rem;margin-top:1rem}
+    .directory{grid-template-columns:repeat(5,minmax(0,1fr));list-style:none;padding:0;margin-bottom:0}
+    .directory a{display:flex;align-items:center;gap:.55rem;height:100%;min-height:3.6rem;background:var(--white);border:1px solid var(--line);padding:.7rem;border-radius:.55rem;font-weight:720;text-decoration:none;overflow-wrap:anywhere}
+    .directory a:hover{background:var(--lime);text-decoration:underline}
+    .num{color:var(--muted)}
+    .stories{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .stories article{background:var(--white);border-top:.35rem solid #9673d0;border-radius:.55rem;padding:1rem}
+    .stories h3{margin-bottom:.65rem}
+    .stories .num{display:block;margin-bottom:.45rem}
+    .gallery{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .gallery figure{border:1px solid var(--line);border-radius:.65rem;overflow:hidden;background:#fff}
+    .gallery img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain}
+    .faq{margin-top:1rem;border-top:1px solid var(--line)}
+    .faq details{border-bottom:1px solid var(--line)}
+    .faq summary{padding:.85rem .3rem;cursor:pointer;font-weight:750}
+    .faq p{max-width:76ch;padding:0 .3rem .9rem}
+    .foot p{max-width:65ch;font-size:.88rem;color:#eee5fa}
+    @media(max-width:52rem){.directory{grid-template-columns:repeat(3,minmax(0,1fr))}.stories{grid-template-columns:1fr}}
+    @media(max-width:39rem){.hero{grid-template-columns:1fr}.visual img{aspect-ratio:2.4}.directory,.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "pl",
+    "name": "PantherBuy spreadsheet | Kategorie, rozmiary i kontrola QC",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Co oznacza PantherBuy spreadsheet?",
+        "acceptedAnswer": {"@type": "Answer", "text": "To określenie zestawienia ofert i linków do produktów, które ułatwia porównanie modeli, wariantów i rozmiarów. Na tej stronie znajdziesz poradnik oraz odsyłacze do kategorii HipobuyFind."}
+      },
+      {
+        "@type": "Question",
+        "name": "Gdzie prowadzą linki do produktów PantherBuy z tego poradnika?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Kafelki prowadzą do odpowiednich kategorii HipobuyFind. W wybranej kategorii otwórz kartę produktu i sprawdź dostępny wariant, tabelę rozmiarów oraz warunki zakupu."}
+      },
+      {
+        "@type": "Question",
+        "name": "Co sprawdzić na zdjęciach QC PantherBuy?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Porównaj zdjęcia konkretnego egzemplarza z zamówionym wariantem. Sprawdź kolor, oznaczenie rozmiaru, szwy i widoczne uszkodzenia. Same zdjęcia QC nie potwierdzają autentyczności."}
+      },
+      {
+        "@type": "Question",
+        "name": "Jak dobrać rozmiar, gdy tabela sprzedawcy różni się od EU?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Porównaj wymiary w centymetrach, używając tej samej metody pomiaru co sprzedawca. W przypadku odzieży zmierz podobne ubranie na płasko, a przy butach sprawdź, czy tabela podaje długość stopy czy wkładki."}
+      },
+      {
+        "@type": "Question",
+        "name": "Jak oszacować koszt wysyłki do Polski?",
+        "acceptedAnswer": {"@type": "Answer", "text": "W kalkulatorze przewoźnika wybierz Polskę i wpisz wagę oraz wymiary paczki. Do budżetu w PLN dolicz cenę produktów i sprawdź, które opłaty oraz podatki są uwzględnione w podanej kwocie."}
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/aqaul/">
+</head>
+<body>
+  <header class="mast">
+    <div class="wrap">
+      <a href="https://www.hipobuyfind.com">www.hipobuyfind.com</a>
+      <span>Poradnik zakupowy po polsku</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="tytul">
+      <div class="lead">
+        <p class="tag">Katalog i lista kontrolna</p>
+        <h1 id="tytul">PantherBuy spreadsheet</h1>
+        <p>Zacznij od kategorii HipobuyFind. Gdy wybierzesz model, użyj poradnika, aby porównać wymiary, ocenić zdjęcia z kontroli jakości i policzyć pełny koszt zamówienia.</p>
+      </div>
+      <figure class="visual">
+        <img src="https://www.nike.sa/dw/image/v2/BDVB_PRD/on/demandware.static/-/Sites-akeneo-master-catalog/default/dwfdb9946c/nk/2ff/5/b/9/a/c/2ff5b9ac_f508_44c6_9a95_18ae7a429116.jpg?sw=640&amp;sh=640&amp;sm=fit" alt="Biało-szary but Nike Air Max 90 z widoczną poduszką Air, widok z boku" width="640" height="640" loading="eager" fetchpriority="high">
+        <figcaption>Nike Air Max 90. Zdjęcie poglądowe modelu.</figcaption>
+      </figure>
+    </section>
+
+    <nav class="section" aria-labelledby="kategorie">
+      <h2 id="kategorie">Wybierz kategorię</h2>
+      <p>Dziesięć wejść do katalogu HipobuyFind.</p>
+      <ul class="directory">
+        <li><a href="https://hipobuyfind.com/category-911-Shoes.html"><span class="num" aria-hidden="true">01</span> Buty</a></li>
+        <li><a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html"><span class="num" aria-hidden="true">02</span> Bluzy i swetry</a></li>
+        <li><a href="https://hipobuyfind.com/category-913-T-Shirts.html"><span class="num" aria-hidden="true">03</span> T-shirty</a></li>
+        <li><a href="https://hipobuyfind.com/category-914-Jackets.html"><span class="num" aria-hidden="true">04</span> Kurtki</a></li>
+        <li><a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html"><span class="num" aria-hidden="true">05</span> Spodnie i szorty</a></li>
+        <li><a href="https://hipobuyfind.com/category-916-Headwear.html"><span class="num" aria-hidden="true">06</span> Nakrycia głowy</a></li>
+        <li><a href="https://hipobuyfind.com/category-917-Sets.html"><span class="num" aria-hidden="true">07</span> Komplety</a></li>
+        <li><a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html"><span class="num" aria-hidden="true">08</span> Bielizna</a></li>
+        <li><a href="https://hipobuyfind.com/category-919-Jersey.html"><span class="num" aria-hidden="true">09</span> Koszulki sportowe</a></li>
+        <li><a href="https://hipobuyfind.com/category-920-Accessories.html"><span class="num" aria-hidden="true">10</span> Akcesoria</a></li>
+      </ul>
+    </nav>
+
+    <section class="section" aria-labelledby="poradnik">
+      <h2 id="poradnik">Poradnik PantherBuy przed zakupem</h2>
+      <div class="stories">
+        <article>
+          <span class="num">01 / Rozmiary</span>
+          <h3>Porównaj wymiary w centymetrach</h3>
+          <p>W tabeli rozmiarów butów znajdź długość stopy albo długość wkładki i porównaj tę samą miarę. Przy bluzie zmierz szerokość pod pachami i długość rękawa. Przy spodniach sprawdź szerokość w pasie oraz długość nogawki od kroku.</p>
+          <p>Do listy porównawczej wpisz krój, skład materiału i kod koloru. Przy komplecie zweryfikuj wymiary obu części, a przy czapce sprawdź zakres regulacji obwodu.</p>
+        </article>
+        <article>
+          <span class="num">02 / Kontrola jakości</span>
+          <h3>Sprawdź link i zdjęcia egzemplarza</h3>
+          <p>Otwórz aktualną ofertę i potwierdź wariant produktu. Porównaj kod modelu, kolor i oznaczenie rozmiaru. Gdy dostaniesz zdjęcia z magazynu, obejrzyj podeszwę butów, symetrię pary, szwy przy mankietach albo zapięcie bransoletki.</p>
+          <p>Gdy ujęcie jest nieczytelne, poproś o zbliżenie w neutralnym świetle. Jeśli znajdziesz rozbieżność, sprawdź termin zgłoszenia i zasady zwrotu przed akceptacją wysyłki.</p>
+        </article>
+        <article>
+          <span class="num">03 / Wysyłka</span>
+          <h3>Policz koszt dostawy do Polski</h3>
+          <p>Zapisz cenę produktu, koszt dostawy do magazynu i opłaty obsługi. Dla przesyłki międzynarodowej porównaj wagę rzeczywistą i wagę gabarytową. Sprawdź, którą wartość przewoźnik przyjmuje do wyceny.</p>
+          <p>Przy łączeniu zamówień porównaj koszt jednej paczki z kosztem osobnych przesyłek. Przelicz sumę na złote, sprawdź opłaty importowe i zobacz, czy wybrana opcja obejmuje śledzenie paczki.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="detale">
+      <h2 id="detale">Detale, które warto porównać</h2>
+      <p>Zdjęcia poglądowe pokazują fason, fakturę tkaniny i rodzaj zapięcia. Dostępność sprawdzisz w kartach produktów.</p>
+      <div class="gallery">
+        <figure>
+          <img src="https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monogram-gradient-hoodie--HNN45WUSO904_PM2_Front%20view.jpg?wid=480" alt="Czarna bluza Louis Vuitton Monogram Gradient z kapturem i jasnym wzorem przy ramionach" width="490" height="490" loading="lazy" decoding="async">
+          <figcaption>Louis Vuitton · bluza z kapturem</figcaption>
+        </figure>
+        <figure>
+          <img src="https://media.gucci.com/style/DarkGray_Center_0_0_980x980/1776361530/875719_3HBJ3_4000_006_100_0000_Light-gg-cotton-denim-baseball-hat.jpg" alt="Niebieska dżinsowa czapka Gucci z monogramem GG i zakrzywionym daszkiem" width="980" height="980" loading="lazy" decoding="async">
+          <figcaption>Gucci · dżinsowa czapka z daszkiem</figcaption>
+        </figure>
+        <figure>
+          <img src="https://assets.christiandior.com/is/image/diorprod/593J635A3026C981_E01?%24default_GH%24=&amp;crop=433%2C150%2C1134%2C1354&amp;extend=0%2C0%2C0%2C250&amp;hei=520&amp;wid=480" alt="Czarny T-shirt Dior CD Icon z małym jasnym haftem na piersi" width="480" height="520" loading="lazy" decoding="async">
+          <figcaption>Dior · koszulka CD Icon</figcaption>
+        </figure>
+        <figure>
+          <img src="https://www.oliverjewellery.ca/cdn/shop/files/Hermes-Palladium-Plated-Blue-Enamel-12-MM-Clic-H-Bracelet_1200x1200.jpg?v=1745994773&amp;width=480" alt="Niebieska emaliowana bransoletka Hermès Clic H ze srebrzystym zapięciem" width="1200" height="1198" loading="lazy" decoding="async">
+          <figcaption>Hermès · bransoletka Clic H</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="pytania">
+      <h2 id="pytania">Najczęstsze pytania</h2>
+      <div class="faq">
+        <details open>
+          <summary>Co oznacza PantherBuy spreadsheet?</summary>
+          <p>To określenie zestawienia ofert i linków do produktów, które ułatwia porównanie modeli, wariantów i rozmiarów. Na tej stronie znajdziesz poradnik oraz odsyłacze do kategorii HipobuyFind.</p>
+        </details>
+        <details>
+          <summary>Gdzie prowadzą linki do produktów PantherBuy z tego poradnika?</summary>
+          <p>Kafelki prowadzą do odpowiednich kategorii HipobuyFind. W wybranej kategorii otwórz kartę produktu i sprawdź dostępny wariant, tabelę rozmiarów oraz warunki zakupu.</p>
+        </details>
+        <details>
+          <summary>Co sprawdzić na zdjęciach QC PantherBuy?</summary>
+          <p>Porównaj zdjęcia konkretnego egzemplarza z zamówionym wariantem. Sprawdź kolor, oznaczenie rozmiaru, szwy i widoczne uszkodzenia. Same zdjęcia QC nie potwierdzają autentyczności.</p>
+        </details>
+        <details>
+          <summary>Jak dobrać rozmiar, gdy tabela sprzedawcy różni się od EU?</summary>
+          <p>Porównaj wymiary w centymetrach, używając tej samej metody pomiaru co sprzedawca. W przypadku odzieży zmierz podobne ubranie na płasko, a przy butach sprawdź, czy tabela podaje długość stopy czy wkładki.</p>
+        </details>
+        <details>
+          <summary>Jak oszacować koszt wysyłki do Polski?</summary>
+          <p>W kalkulatorze przewoźnika wybierz Polskę i wpisz wagę oraz wymiary paczki. Do budżetu w PLN dolicz cenę produktów i sprawdź, które opłaty oraz podatki są uwzględnione w podanej kwocie.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p>Niezależny poradnik redakcyjny. Nazwy marek identyfikują modele na zdjęciach poglądowych.</p>
+      <a href="https://www.hipobuyfind.com">Otwórz HipobuyFind</a>
+    </div>
+  </footer>
+</body>
+</html>
